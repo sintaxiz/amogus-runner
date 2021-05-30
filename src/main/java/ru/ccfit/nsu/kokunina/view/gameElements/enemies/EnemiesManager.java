@@ -1,4 +1,4 @@
-package ru.ccfit.nsu.kokunina.view.enemies;
+package ru.ccfit.nsu.kokunina.view.gameElements.enemies;
 
 import javafx.scene.layout.Pane;
 import org.slf4j.Logger;
@@ -13,8 +13,6 @@ public class EnemiesManager {
     private List<Enemy> enemies;
     private final Pane graphics;
     private final double screenWidth;
-
-
 
     private Random random;
 
