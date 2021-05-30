@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+}
+
+javafx {
+    version = "12"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.media', 'javafx.graphics' ]
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    implementation("org.slf4j:slf4j-api:1.7.30")
+    implementation("ch.qos.logback:logback-classic:1.2.3")
+
+}
+
+test {
+    useJUnitPlatform()
+}

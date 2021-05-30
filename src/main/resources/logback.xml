@@ -1,0 +1,41 @@
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %logger{1} - %msg%n </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/main.log</file>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line]: %msg%n</pattern>
+        </encoder>
+
+    </appender>
+
+    <appender name="TIME_BASED_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/game.log</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logFile.%d{yyyy-MM-dd-HH-mm}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>5MB</maxFileSize>
+        </triggeringPolicy>
+
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <root level="debug">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="TIME_BASED_FILE" />
+    </root>
+</configuration>
